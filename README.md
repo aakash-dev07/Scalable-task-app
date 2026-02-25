@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+ 
 
-## Getting Started
+---
 
-First, run the development server:
+#  Scalable Web App with Auth & Dashboard
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a Full-Stack Task Management application built with **Next.js 15** and **MongoDB**. It features a robust JWT-based authentication system and a fully functional dashboard for managing tasks.
+
+##  Key Features
+
+* **Authentication**: Secure password hashing using Bcrypt and session management via JWT (Cookies).
+* **Protected Routes**: Dashboard access is restricted to authenticated users only using Next.js Middleware.
+* **Full CRUD Operations**: Users can Create, Read, Update (inline title editing and status toggling), and Delete tasks.
+* **Search & Filter**: Real-time search functionality on the dashboard to filter tasks by title.
+* **Responsive UI**: A modern, clean design built with Tailwind CSS that works seamlessly across mobile, tablet, and desktop devices.
+
+##  Tech Stack
+
+* **Frontend**: React.js, Next.js 15 (App Router), Tailwind CSS
+* **Backend**: Next.js API Routes (Node.js runtime)
+* **Database**: MongoDB (via Mongoose)
+* **Security**: JSON Web Tokens (JWT), Bcrypt.js
+
+##  Project Structure
+
+```text
+src/
+├── app/                  # Routes (Frontend & API)
+│   ├── api/              # Backend Endpoints (Auth & CRUD)
+│   │   └── tasks/
+│   │       └── [id]/     # Dynamic routes for Update/Delete
+│   ├── login/            # Login Page
+│   ├── signup/           # Signup Page
+│   └── dashboard/        # Protected Dashboard UI
+├── components/           # Reusable UI Components
+├── lib/                  # Database connection & Auth utilities
+├── models/               # MongoDB Schemas (Task & User)
+└── middleware.ts         # Route Protection Logic
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the Repository:**
+git clone https://github.com/aaki619/Scalable-task-app.git
+cd Scalable-task-app
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+2. **Install Dependencies:**
+```bash
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Set Environment Variables:**
+Create a `.env.local` file in the root directory and add your credentials (refer to `.env.example`):
+```text
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run the Development Server:**
+```bash
+npm run dev
+
+```
+
+
+
+##  Scalability for Production
+
+To scale this application for production-level traffic and complexity:
+
+* **State Management**: Implement **Zustand** or **Redux Toolkit** for managing complex global states and user data.
+* **Data Fetching**: Use **TanStack Query (React Query)** for efficient server-state management, caching, and optimistic UI updates.
+* **Backend Optimization**: Integrate **Rate Limiting** to prevent API abuse and implement **Redis Caching** for frequently accessed data.
+* **Security**: Ensure JWTs are stored in `HttpOnly` cookies (currently implemented) and set up strict **CORS** policies and **Helmet.js** for header security.
+* **Database**: Utilize MongoDB **Indexing** on frequently searched fields (like task titles) to improve query performance.
+
+##  API Documentation
+
+A Postman Collection containing all API endpoints (Auth & CRUD) is available in the docs/ folder for testing and integration reference.
+
+Project Link: https://github.com/aaki619/Scalable-task-app
+
+ 
