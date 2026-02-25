@@ -7,6 +7,6 @@ const UserSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-// अगर मॉडल पहले से बना है तो उसे इस्तेमाल करें, नहीं तो नया बनाएँ
+ 
 const User = models.User || model("User", UserSchema);
 export default User;
