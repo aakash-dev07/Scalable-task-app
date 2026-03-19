@@ -84,6 +84,6 @@ To scale this application for production-level traffic and complexity:
 
 A Postman Collection containing all API endpoints (Auth & CRUD) is available in the docs/ folder for testing and integration reference.
 
-Project Link: https://github.com/aaki619/Scalable-task-app
+Project Link: https://github.com/aakash-dev07/Scalable-task-app
 
  
